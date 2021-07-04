@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "419316831774",
+    "project_id": "ges-huariqueando",
+    "storage_bucket": "ges-huariqueando.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419316831774:android:094e4c26d4a1fb5214400f",
+        "android_client_info": {
+          "package_name": "unsa.edu.ges"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419316831774-hsagh238gi6drj1m59stj3ldui3jvng3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "unsa.edu.ges",
+            "certificate_hash": "7f474b49fb0862e8f9aa267838ceb77902e5aac0"
+          }
+        },
+        {
+          "client_id": "419316831774-sm4sftmu9urvfhhtkkmihps8rhgmtfl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjL8cehmh1c0oFH0MZHMKXfdRXs3jFyH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419316831774-sm4sftmu9urvfhhtkkmihps8rhgmtfl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
