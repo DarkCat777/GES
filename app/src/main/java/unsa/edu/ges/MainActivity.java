@@ -2,7 +2,10 @@ package unsa.edu.ges;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,13 +22,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import unsa.edu.ges.model.User;
+import unsa.edu.ges.models.User;
+import unsa.edu.ges.models.UserStorage;
 import unsa.edu.ges.repository.UserRepository;
 
 public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
+
+    TextView tv_login_username;
+    TextView tv_login_password;
+    Button btn_login;
+    Button btn_registro;
 
     @Override
     protected void onStart() {
@@ -43,16 +52,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        TextView textView = findViewById(R.id.textView);
 
         UserRepository userRepository = UserRepository.getInstance();
-        userRepository.save(new User("Erick David Carpio Hachiri", "Av. Chegue Vara 1011"));
+        //userRepository.save(new User("Erick David Carpio Hachiri", "Av. Chegue Vara 1011"));
 
         mAuth = FirebaseAuth.getInstance();
 
         createRequest();
 
         findViewById(R.id.btn_sign_in_with_google).setOnClickListener(view -> signIn());
+
+        UserStorage.init();
+
+        tv_login_username=findViewById(R.id.tv_login_username);
+        tv_login_password=findViewById(R.id.tv_login_password);
+        btn_login=findViewById(R.id.btn_login);
+        btn_registro=findViewById(R.id.btn_signup_form);
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User userNow = UserStorage.findUser(tv_login_username.getText().toString());
+                if(userNow!=null){
+                    if(userNow.getPassword().equals(tv_login_password.getText().toString())){
+                        Toast.makeText(getApplicationContext(),"Login Realizado con Éxito",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"La contraseña no coincide",Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(),"Usuario no Registrado",Toast.LENGTH_SHORT).show();
+                }
+                Log.e("Usuarios:",UserStorage.getUsers());
+            }
+        });
+
+        btn_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterLocalActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

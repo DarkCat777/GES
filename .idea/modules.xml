@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GES.iml" filepath="$PROJECT_DIR$/.idea/modules/GES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GES.iml" filepath="$PROJECT_DIR$/.idea/GES.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GES.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GES.app.iml" />
     </modules>
   </component>

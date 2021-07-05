@@ -18,13 +18,14 @@ public abstract class FirestoreRepository<E extends DocumentDatabase> implements
     @Override
     public Task<Void> save(E entity) {
         DocumentReference documentReference = this.collectionReference.document();
-        entity.setIdentifier(documentReference.getId());
+        //entity.setIdentifier(documentReference.getId());
         return documentReference.set(entity);
     }
 
     @Override
     public Task<Void> update(E entity) {
-        return this.collectionReference.document(entity.getIdentifier()).set(entity);
+        //return this.collectionReference.document(entity.getIdentifier()).set(entity);
+        return null;
     }
 
     @Override
