@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -66,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,8 +204,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void startNormalLogin(View v){
-        Intent intent = new Intent(getApplicationContext(),NormalLogin.class);
+    public void startNormalLogin(View v) {
+        Intent intent = new Intent(getApplicationContext(), NormalLogin.class);
         startActivity(intent);
     }
 }
